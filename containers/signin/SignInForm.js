@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-
+import { Text, View, TextInput, TouchableOpacity } from "react-native";
 import { Button, Div } from "react-native-magnus";
 import FormInput from "../../components/form/FormInput";
+import { auth } from "../../utils/firebase";
 
 const SignInForm = (props) => {
   const {
@@ -10,6 +11,16 @@ const SignInForm = (props) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const handleSignUp = (data) => {
+    const { email, password } = data;
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log(user);
+      })
+      .catch((error) => alert(error.message));
+  };
   return (
     <Div {...props}>
       <FormInput
@@ -39,7 +50,7 @@ const SignInForm = (props) => {
 
       <Button
         title="Submit"
-        onPress={handleSubmit((data) => console.log(data))}
+        onPress={handleSubmit((data) => handleSignUp(data))}
         bg="primary"
         w="100%"
         h={55}

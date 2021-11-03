@@ -10,12 +10,13 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@react-navigation/native": "^6.0.5",
-    "@react-navigation/native-stack": "^6.2.3",
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/native-stack": "^6.2.5",
     "color": "3.1.2",
     "deepmerge": "4.2.2",
     "expo": "~42.0.1",
     "expo-status-bar": "~1.0.4",
+    "firebase": "8.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.17.4",
