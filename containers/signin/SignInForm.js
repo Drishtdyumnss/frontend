@@ -20,7 +20,7 @@ const SignInForm = (props) => {
         message: "Enter a valid phone number",
       });
     }
-    git;
+
     console.table(data);
   };
   const nav = useNavigation();
