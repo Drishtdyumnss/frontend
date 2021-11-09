@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { isValidPhoneNumber } from "libphonenumber-js";
-
+import { useNavigation } from "@react-navigation/core";
 import { Button, Div } from "react-native-magnus";
 import FormInput from "../../components/form/FormInput";
 
@@ -20,9 +20,10 @@ const SignInForm = (props) => {
         message: "Enter a valid phone number",
       });
     }
+    git;
     console.table(data);
   };
-
+  const nav = useNavigation();
   return (
     <Div {...props}>
       <FormInput
@@ -38,7 +39,10 @@ const SignInForm = (props) => {
       />
       <Button
         title="Submit"
-        onPress={handleSubmit((data) => submitData(data))}
+        onPress={handleSubmit((data) => {
+          console.log(data);
+          nav.navigate("UserProfile");
+        })}
         bg="primary"
         w="100%"
         h={55}
